@@ -34,7 +34,7 @@ const Card = () => {
 
     const { error } = await supabase.from("task").insert([
       {
-        tittle: form.name,
+        tittle: form.name, // Ensure this matches your DB column name
         assigned: form.assigned,
         due_date: form.due_date || null,
         status: form.status,
@@ -46,9 +46,9 @@ const Card = () => {
       return;
     }
 
-    // Reset form and close modal
+    // Reset form using correct keys
     setForm({
-      tittle: "",
+      name: "",
       assigned: "",
       due_date: "",
       status: "Pending",
@@ -58,7 +58,6 @@ const Card = () => {
 
   return (
     <>
-      {/* Card to trigger modal */}
       <div className="card" onClick={modalToggle} style={{ cursor: "pointer" }}>
         <h3>Create Your Task</h3>
         <span className="card__icon">
@@ -67,15 +66,14 @@ const Card = () => {
         <p>Click here to create a new task.</p>
       </div>
 
-      {/* Modal */}
       {modal && (
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <h3>Create Task</h3>
-              <span onClick={modalToggle} style={{ cursor: "pointer" }}>
+              <button onClick={modalToggle} style={{ background: "none", border: "none", cursor: "pointer" }}>
                 <ImCancelCircle size={30} />
-              </span>
+              </button>
             </div>
 
             <form className="create-task-form" onSubmit={handleSubmit}>
@@ -90,9 +88,9 @@ const Card = () => {
 
               <input
                 type="text"
-                name="assigned_to"
+                name="assigned" // Changed from assigned_to to match state
                 placeholder="Assigned to"
-                value={form.assigned_to}
+                value={form.assigned}
                 onChange={handleChange}
               />
 
@@ -104,9 +102,9 @@ const Card = () => {
               />
 
               <select name="status" value={form.status} onChange={handleChange}>
-                <option>Pending</option>
-                <option>In Progress</option>
-                <option>Completed</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
               </select>
 
               <button type="submit">Create Task</button>
