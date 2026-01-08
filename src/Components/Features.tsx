@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaBolt, FaShieldAlt, FaChartLine, FaUsers } from "react-icons/fa";
 // import "./Features.css";
 
