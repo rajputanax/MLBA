@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: #ffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  position: sticky;
+  inset: 0;
+}
+
+.header__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fefefc;
+  background-color: #3a5285fb;
+  padding: 4px 16px;
+  border-radius: 50%;
+}
+
+.header__nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header__nav a {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+}
+
+.header__nav a:hover {
+  color: #111827;
+}
+
+.header__actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #374151;
+}
+
+.btn--ghost:hover {
+  background: #212121;
+}
+
+.btn--primary {
+   background-color: #3a5285fb;
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: #188dbbfb;
+}
