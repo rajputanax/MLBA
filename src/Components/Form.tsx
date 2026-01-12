@@ -21,16 +21,24 @@ const AuthForm = ({ type } : prop) => {
         const { error , data } = await supabase.auth.signUp({ email, password  ,options: {
         // redirect URL after email confirmation (optional)
         emailRedirectTo: `${window.location.origin}dashboard`,
+        
       }, });
-        console.log(data , '---')
-      
+      console.log(data , '---' ,  `${window.location.origin}dashboard`)
+       setUser('');
+       setPassword('');setEmail('');
         if (error) throw error;
         setMessage("Check your email for a confirmation link!");
+      
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
+        if (!error) {
+  window.location.href = '/dashboard';
+}
         setMessage("Login successful!");
       }
+        setUser('');
+       setPassword('');setEmail('');
     } catch (error:any) {
       setMessage(error.message);
     } finally {

@@ -28,8 +28,8 @@ const ClientDashBoards = () => {
   return (
     <>
       <div className="main--wrapper">
-        <h4>
-          WELCOME TO YOUR DASHBOARD !
+        <h4 className="hero-title">
+          WELCOME TO YOUR <span>DASHBOARD !</span>
         </h4>
         <section className="top--header">
           <div className="cards">
@@ -45,6 +45,7 @@ const ClientDashBoards = () => {
                 <th>Assigned To</th>
                 <th>Due Date</th>
                 <th>Status</th>
+                <th>Actions</th>
               </tr>
             </thead>
 
@@ -57,10 +58,11 @@ const ClientDashBoards = () => {
 
               {task.map((t) => (
                 <tr key={t.id}>
-                  <td>{t.name}</td>
-                  <td>{t.assigned_to || "—"}</td>
+                  <td>{t.tittle}</td>
+                  <td>{t.assigned || "—"}</td>
                   <td>{t.due_date || "—"}</td>
                   <td>{t.status}</td>
+                  <td><button>delete</button> <button>edit</button></td>
                 </tr>
               ))}
             </tbody>

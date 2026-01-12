@@ -6,7 +6,7 @@ import { supabase } from "../lib/supBaseClient";
 type FormState = {
   name: string;
   assigned: string;
-  due_date: string;
+  due_date:  string;
   status: string;
 };
 
@@ -38,6 +38,7 @@ const Card = () => {
         assigned: form.assigned,
         due_date: form.due_date || null,
         status: form.status,
+        completed: form.status === "Completed"
       },
     ]);
 
@@ -59,7 +60,7 @@ const Card = () => {
   return (
     <>
       <div className="card" onClick={modalToggle} style={{ cursor: "pointer" }}>
-        <h3>Create Your Task</h3>
+        <h3>Create Your <span>Task</span></h3>
         <span className="card__icon">
           <AiOutlinePlusCircle size={40} />
         </span>
@@ -71,7 +72,7 @@ const Card = () => {
           <div className="modal">
             <div className="modal-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <h3>Create Task</h3>
-              <button onClick={modalToggle} style={{ background: "none", border: "none", cursor: "pointer" }}>
+              <button onClick={modalToggle} style={{ background: "", border: "none", cursor: "pointer" }}>
                 <ImCancelCircle size={30} />
               </button>
             </div>
