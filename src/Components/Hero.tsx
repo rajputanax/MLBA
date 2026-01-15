@@ -1,5 +1,6 @@
 
 import "../STYLE/Hero.css";
+import bannerImg from '../assets/hr.png';
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
         </div>
 
         <div className="hero-image flip-item">
-          <img src="../../src/assets/hr.png" alt="Hero Illustration" />
+          <img src={bannerImg} alt="Hero Illustration" />
         </div>
       </div>
     </section>
