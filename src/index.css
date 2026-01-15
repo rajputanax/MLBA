@@ -8,6 +8,7 @@
   -moz-osx-font-smoothing: grayscale;
 
 }
+
 html{
   scroll-behavior: smooth;
 }
@@ -29,14 +30,14 @@ body {
 }
 
 .create-task-form {
-
+  
 
 
   padding: 20px;
   margin-bottom: 20px;
-
- 
- 
+  
+  
+  
 }
 
 .card {
@@ -47,6 +48,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex-wrap: wrap;
   h3{
     span{
       color:#ff6584;
@@ -89,7 +91,7 @@ table {
   
   tbody {
     text-align: center;
-
+    
     tr {
       border-bottom: 1px solid #e2e2e2;
       
@@ -141,4 +143,180 @@ svg{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.footer{
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: #ffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+  position: sticky;
+  inset: 0;
+  flex-wrap:wrap ;
+  
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+  .footer--container{
+    width:100% ;
+    text-align:right;
+  }
+}
+section{
+  padding:40px 0;
+  min-height: 90vh;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+    border-color: #14a800;
+  }
+
+  50% {
+    transform: scale(1.12);
+    background-color: #14a800;
+    border-color: #14a800;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: transparent;
+    border-color: #14a800;
+  }
+}
+
+.upwork--badge {
+  position: fixed;
+  bottom: 5%;
+  left: 2%;
+  z-index: 10000;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #14a800;
+  border-radius: 50%;
+  background-color: transparent;
+
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* SVG default state */
+.upwork--badge svg {
+  width: 28px;
+  height: 28px;
+  fill: #14a800;
+  transition: fill 0.3s ease;
+}
+
+/* SVG color change during pulse */
+.upwork--badge {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.upwork--badge {
+  --icon-color: #14a800;
+}
+
+.upwork--badge svg {
+  fill: var(--icon-color);
+}
+
+.upwork--badge {
+  animation-name: pulse;
+}
+
+/* Sync SVG color with animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+    border-color: #14a800;
+  }
+
+  50% {
+    transform: scale(1.12);
+    background-color: #14a800;
+    border-color: #14a800;
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: transparent;
+    border-color: #14a800;
+  }
+}
+
+/* SVG color animation */
+@keyframes iconPulse {
+  0%,
+  100% {
+    fill: #14a800;
+  }
+
+  50% {
+    fill: #ffffff;
+  }
+}
+
+.upwork--badge svg {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+@media (max-width:1366px){
+ h2 ,.touch-msg  .text--lg{
+  font-size:2rem !important;
+ }
+  .w-50{
+    width:100% ;
+    text-align: center;
+        padding-inline: 20px;
+  }
+}
+@media(max-width:1166px){
+  .features__container  {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  section{
+    min-height:unset ;
+  }
+  .text--lg {
+    display: none;
+  }
+  .inner-wrapper{
+    flex-wrap:wrap ;
+    justify-content:center ;
+    gap:20px;
+    text-align: center;
+  }
+  .auth-form{
+    max-width:unset !important;
+    input{
+      padding:unset !important;
+    }
+  }
+  label{
+    text-align:left !important;
+  }
+  button{
+    width:100% !important;
+  }
+  textarea{
+    width:94% !important;
+  }
 }

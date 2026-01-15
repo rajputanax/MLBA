@@ -26,7 +26,7 @@
     }
 
 
-    input , select{
+    input , select ,textarea {
        &:not(select){
          width: 100%;
           max-width: 480px;
@@ -67,8 +67,16 @@
 select{
 width: 100% !important;
 
+
 }
-    @media (max-width: 500px) {
+.text--lg{
+    font-size:5rem !important;
+}
+.m--unset{
+  margin:0 !important;
+  padding:0 !important;
+}
+@media (max-width: 500px) {
         .auth-form {
             padding: 15px;
             h2 {
