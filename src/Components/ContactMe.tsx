@@ -10,7 +10,8 @@ const ContactMe = () => {
 
         <h2 className='hero-title'>Contact <span>Me</span></h2>
         <p>If you have any questions, feel free to reach out!</p>
-            <form className="auth-form m--unset">
+            <form className="auth-form m--unset"action="https://formspree.io/f/mreebybl"
+  method="POST">
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="name" required />
             <br />
