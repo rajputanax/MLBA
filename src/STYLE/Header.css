@@ -12,11 +12,15 @@
 
 .header__logo {
   font-size: 1.4rem;
-  font-weight: 700;
-  color: #fefefc;
-  background-color: #3a5285fb;
-  padding: 4px 16px;
-  border-radius: 50%;
+    font-weight: 700;
+    color: #ff6584;
+    border-radius: 10%;
+    border: 1px solid #ff6584;
+    width: 90px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header__nav {
@@ -28,10 +32,15 @@
   text-decoration: none;
   color: #374151;
   font-weight: 500;
+  transition: all 0.3s linear;
 }
 
 .header__nav a:hover {
-  color: #111827;
+  color: #ff6584;
+  text-decoration: underline;
+  text-decoration-color: #ff6584;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 2px;
 }
 
 .header__actions {
@@ -47,14 +56,21 @@
   cursor: pointer;
   border: none;
 }
-
+a{
+  text-decoration: none;
+}
 .btn--ghost {
   background: transparent;
-  color: #374151;
+  color: #ff6584;
+  border: none;
+  border: 1px solid #ff6584;
 }
 
 .btn--ghost:hover {
-  background: #212121;
+  background-color: #ff6584;
+  color: #ffffff;
+  font-weight: 600;
+  border-color: TRANSPARENT;
 }
 
 .btn--primary {

@@ -23,8 +23,21 @@ const ClientDashBoards = () => {
     fetchTask();
   }, []);
 
+const deleteTask = async (id: number) => {
+  console.log("deleting task with id:", id);
+    const { error } = await supabase
+      .from("task")
+      .delete()
+      .eq("id", id);
+    if (error) {
+      console.log("error deleting task", error);
+    } else {
+      setTask((prevTasks) => prevTasks.filter((task) => task.id !== id));
+      console.log("task deleted successfully");
+    }
+  };
 
-
+console.log("current tasks:", task);
   return (
     <>
       <div className="main--wrapper">
@@ -52,17 +65,19 @@ const ClientDashBoards = () => {
             <tbody>
               {task.length === 0 && (
                 <tr>
-                  <td colSpan={4}>No tasks yet</td>
+                  <td colSpan={6}>No tasks yet</td>
                 </tr>
               )}
 
               {task.map((t) => (
                 <tr key={t.id}>
+                
                   <td>{t.tittle}</td>
                   <td>{t.assigned || "—"}</td>
                   <td>{t.due_date || "—"}</td>
                   <td>{t.status}</td>
-                  <td><button>delete</button> <button>edit</button></td>
+                  <td><button onClick={()=>{deleteTask(t.id)}}>delete</button> <button>edit</button></td>
+                 
                 </tr>
               ))}
             </tbody>

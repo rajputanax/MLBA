@@ -1,7 +1,7 @@
 .hero {
  
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #b2aefd41, #3f3d56);
+  background: linear-gradient(135deg, #3a5285fb, #f6f6f9fb);
   color: #fff;
 
  
@@ -68,15 +68,15 @@
 
 .hero-image {
   width: 100%;
-  max-width: 500px;
-  height: 500px;
+  max-width: 600px;
+  height: 550px;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  
 
   img{
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+ 
     object-fit: cover;
   }
 }

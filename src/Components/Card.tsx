@@ -19,6 +19,7 @@ const Card = () => {
   });
 
   const [modal, setModal] = useState<boolean>(false);
+   const [loading , setLoading ] = useState<boolean>(false);
 
   const modalToggle = () => setModal(!modal);
 
@@ -41,7 +42,7 @@ const Card = () => {
         completed: form.status === "Completed"
       },
     ]);
-
+setLoading(true);
     if (error) {
       console.error("Error adding task:", error);
       return;
@@ -55,10 +56,15 @@ const Card = () => {
       status: "Pending",
     });
     setModal(false);
+    setLoading(false);
   };
 
   return (
     <>
+     <div className={` ${loading ? "loading-overlay" : "wrapper--card"}`}>
+      
+      
+      
       <div className="card" onClick={modalToggle} style={{ cursor: "pointer" }}>
         <h3>Create Your <span>Task</span></h3>
         <span className="card__icon">
@@ -71,13 +77,13 @@ const Card = () => {
         <div className="modal-overlay">
           <div className="modal">
             <div className="modal-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <h3>Create Task</h3>
-              <button onClick={modalToggle} style={{ background: "", border: "none", cursor: "pointer" }}>
+              <h2>Create Task</h2>
+              <span onClick={modalToggle} style={{ background: "", border: "none", cursor: "pointer" }}>
                 <ImCancelCircle size={30} />
-              </button>
+              </span>
             </div>
 
-            <form className="create-task-form" onSubmit={handleSubmit}>
+            <form className="create-task-form auth-form" onSubmit={handleSubmit}>
               <input
                 type="text"
                 name="name"
@@ -113,6 +119,7 @@ const Card = () => {
           </div>
         </div>
       )}
+      </div>
     </>
   );
 };
